@@ -4,6 +4,7 @@
 
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import urlparse
+import pifacedigitalio as pf
 
 class RequestHandler(BaseHTTPRequestHandler):
     def _writeheaders(self):
@@ -27,7 +28,10 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write("""<HTML><HEAD><TITLE>Leinwand RUNTER</TITLE></HEAD><BODY>Leinwand RUNTER</BODY></HTML>""")
             
         
-        
-serveraddr = ('', 8765)
-srvr = HTTPServer(serveraddr, RequestHandler)
-srvr.serve_forever()
+if __name__ == "__main__":        
+	piFace = pf.PiFaceDigital()
+	piFace.output_pins[0].turn_on();
+	piFace.output_pins[1].turn_on();
+	serveraddr = ('', 8080)
+	srvr = HTTPServer(serveraddr, RequestHandler)
+	srvr.serve_forever()
