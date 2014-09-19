@@ -54,9 +54,9 @@ class RequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_POST(self):
         (scm, netloc, path, params, query, fragment) = urlparse.urlparse(self.path, 'http')
         print "path: " + path
-        if path.startswith("/down"):
-            switchPins((0, True), (1, True)) 
         if path.startswith("/up"):
+            switchPins((0, True), (1, True)) 
+        if path.startswith("/down"):
             switchPins((0, True), (1, False))
         self.send_response(200)
 
