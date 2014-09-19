@@ -43,13 +43,14 @@ class RequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_POST(self):
         (scm, netloc, path, params, query, fragment) = urlparse.urlparse(self.path, 'http')
         print "path: " + path
-        if path.startswith("/up"):
-            piFace.output_pins[0].turn_on()
-            piFace.output_pins[1].turn_on()
-            Timer(60.0, switchOff, [0, 1]).start()
         if path.startswith("/down"):
             piFace.output_pins[0].turn_on()
-            Timer(60.0, switchOff, [0]).start()
+            piFace.output_pins[1].turn_on()
+            Timer(25.0, switchOff, [0, 1]).start()
+        if path.startswith("/up"):
+            piFace.output_pins[0].turn_on()
+            piFace.output_pins[1].turn_off()
+            Timer(25.0, switchOff, [0]).start()
 
 
             
