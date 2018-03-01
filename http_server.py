@@ -14,7 +14,7 @@ piFace = pf.PiFaceDigital()
 def switchOff(*args):
     print "switch off pins " + str(args)
     for arg in args:
-        piFace.output_pins[arg].turn_off();
+        piFace.output_pins[arg].turn_off()
 
 def switchPins(*args):
     print "switch pins " + str(args)
