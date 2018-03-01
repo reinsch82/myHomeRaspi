@@ -1,0 +1,5 @@
+#!/bin/sh
+cd /home/pi/src/myHomeRaspi
+git pull
+./http_server.py &
+
