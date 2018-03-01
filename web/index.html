@@ -1,28 +1,30 @@
 <HTML>
+
 <HEAD>
-<TITLE>Leinwand Steuerung</TITLE>
+    <TITLE>Leinwand Steuerung</TITLE>
 </HEAD>
+
 <BODY>
-<script>
-function up() {
-var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST","up",true);
-xmlhttp.send();
-}
-function down() {
-var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST","down",true);
-xmlhttp.send();
-}
+    <script>
+        function up() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "up", true);
+            xmlhttp.send();
+        }
+        function down() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "down", true);
+            xmlhttp.send();
+        }
 
-</script><div width="100%" height="50%">
-<input type="button" value="up" width="100%" height="100%" onclick="up()">
+    </script>
+    <div>
+    <input style="height: 50%; width: 100%" type="button" value="up" width="100%" height="100%" onclick="up()">
 
-</input>
-</div>
-<div width="100%" height="50%">
-<input type="button" value="down" width="100%" height="100%" onclick="down()">
-</input>
-</div>
+    </input>
+    <input style="height: 50%; width: 100%" type="button" value="down" width="100%" height="100%" onclick="down()">
+    </input>
+    </div>
 </BODY>
+
 </HTML>
